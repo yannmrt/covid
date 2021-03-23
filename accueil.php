@@ -1,9 +1,6 @@
 <?php
-    session_start();
-    include "fonction.php";
-    if(check()){
-        header ("location:index.php");
-    }else{
+require "db.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,7 +15,7 @@
         $gens = $MaBase->query("SELECT * FROM Users");
         $sos=$gens->fetch();
 
-        echo "<h1>Bienvenue ".$sos["pseudo"]."</h1>";
+        echo "<h1>Bienvenue ".$_POST["nom"]."</h1>";
 
         logout();
     }
